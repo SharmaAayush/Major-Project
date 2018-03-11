@@ -1,3 +1,3 @@
 export class Config {
-  apiUrl = 'https://major-project-lsddqymvnl.now.sh';
+  apiUrl = 'https://major-project-zjwqwsspsk.now.sh';
 }

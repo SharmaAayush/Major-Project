@@ -11,6 +11,8 @@ import { SignupComponent } from './authentication/signup/signup.component';
 import { ApiService } from './api.service';
 import { Config } from './config';
 import { HeaderComponent } from './header/header.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthenticateUserService } from './authenticate-user.service';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,11 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     HttpModule
   ],
-  providers: [ApiService, Config],
+  providers: [
+    ApiService,
+    Config,
+    AuthenticateUserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

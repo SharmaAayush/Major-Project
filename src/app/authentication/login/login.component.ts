@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { NgForm } from '@angular/forms';
+import { AuthenticateUserService } from '../../authenticate-user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
   innerWidth;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private authenticateUser: AuthenticateUserService) {
     this.innerWidth = window.innerWidth;
   }
 
@@ -20,6 +21,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    let user = JSON.parse(localStorage.getItem("x-auth-user"));
+    if (user) {
+      this.authenticateUser.loginUser(user);
+    }
   }
 
   login(form: NgForm) {
@@ -33,8 +38,9 @@ export class LoginComponent implements OnInit {
     });
     response.subscribe((res: any) => {
       let body = JSON.parse(res._body);
-      let token = body.user.token;
-      localStorage.setItem("x-auth-jwt-token", token);
+      let user = body.user;
+      localStorage.setItem("x-auth-user", JSON.stringify(user));
+      this.authenticateUser.loginUser(user);
     })
   }
 
