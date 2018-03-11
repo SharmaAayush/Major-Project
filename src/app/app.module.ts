@@ -13,6 +13,9 @@ import { Config } from './config';
 import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthenticateUserService } from './authenticate-user.service';
+import { CoreComponent } from './core/core.component';
+import { MainComponent } from './main/main.component';
+import { UserHeaderComponent } from './user-header/user-header.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { AuthenticateUserService } from './authenticate-user.service';
     LoginComponent,
     SignupComponent,
     HeaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    CoreComponent,
+    MainComponent,
+    UserHeaderComponent
   ],
   imports: [
     BrowserModule,

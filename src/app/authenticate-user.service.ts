@@ -36,7 +36,7 @@ export class AuthenticateUserService {
         let flag = JSON.parse(res._body).flag;
         console.log(flag);
         if (flag == 1) {
-          this.router.navigate(['home']);
+          this.router.navigate(['app/home']);
         }
       });
     }

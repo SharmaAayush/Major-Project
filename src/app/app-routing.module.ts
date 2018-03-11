@@ -3,12 +3,18 @@ import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./authentication/login/login.component";
 import { SignupComponent } from "./authentication/signup/signup.component";
 import { ProfileComponent } from "./profile/profile.component";
+import { CoreComponent } from "./core/core.component";
+import { MainComponent } from "./main/main.component";
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'home', component: ProfileComponent}
+  {path: '', redirectTo: '/core/login', pathMatch: 'full'},
+  {path: 'core', component: CoreComponent, children: [
+    {path: 'login', component: LoginComponent},
+    {path: 'signup', component: SignupComponent},
+  ]},
+  {path: 'app', component: MainComponent, children: [
+    {path: 'home', component: ProfileComponent}
+  ]}
 ];
 
 @NgModule({

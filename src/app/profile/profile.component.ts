@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
       let flag = JSON.parse(res._body).flag;
       if (flag != 1) {
         localStorage.removeItem('x-auth-user');
-        this.router.navigate(['login']);
+        this.router.navigate(['core/login']);
       }
     })
   }
