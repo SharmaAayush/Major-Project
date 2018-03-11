@@ -4,20 +4,17 @@
   </div>
   <div class="col-md-6 col-sm-6">
     <h2>Login</h2>
-    <form class="form-horizontal" (ngSubmit)="login(f)" #f="ngForm">
-      <div class="form-group">
-        <label class="control-label col-xs-2 text-left" for="email">Email</label>
-        <div class="col-xs-10">
+    <form (ngSubmit)="login(f)" #f="ngForm">
+        <div class="form-group">
+          <label class="control-label text-left" for="email">Email</label>
           <input type="text" ngModel required  name="email" id="email" placeholder="Enter your email here" class="form-control">
         </div>
-        <label class="control-label col-xs-2 text-left" for="password">Password</label>
-        <div class="col-xs-10">
+        <div class="form-group">
+          <label class="control-label text-left" for="password">Password</label>
           <input type="password" ngModel required name="password" id="password" placeholder="Enter your password here" class="form-control">
         </div>
-        <div class="col-xs-12">
-          <br>
-          <button type="submit" class="btn btn-success pull-right">Login</button>
-        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success btn-block">Login</button>
       </div>
     </form>
   </div>
