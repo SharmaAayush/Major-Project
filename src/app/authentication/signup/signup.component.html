@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-6 col-sm-6" *ngIf="innerWidth >= 768">
+    <img src="assets/Images/doctor.jpg" class="img-responsive" alt="">
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <h2>Signup</h2>
+    <form class="form-horizontal" (ngSubmit)="signup(f)" #f="ngForm">
+      <div class="form-group">
+        <label class="control-label col-xs-2 text-left" for="username">Username</label>
+        <div class="col-xs-10">
+          <input type="text" ngModel required  name="username" id="username" placeholder="Enter your username here" class="form-control">
+        </div>
+        <label class="control-label col-xs-2 text-left" for="email">Email</label>
+        <div class="col-xs-10">
+          <input type="text" ngModel required  name="email" id="email" placeholder="Enter your email here" class="form-control">
+        </div>
+        <label class="control-label col-xs-2 text-left" for="password">Password</label>
+        <div class="col-xs-10">
+          <input type="password" ngModel required name="password" id="password" placeholder="Enter your password here" class="form-control">
+        </div>
+        <div class="col-xs-12">
+          <br>
+          <button type="submit" class="btn btn-success pull-right">Signup</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
