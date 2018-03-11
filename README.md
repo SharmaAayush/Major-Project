@@ -6,7 +6,7 @@ An example of `src/app/config.ts` file :
 
 ```
 export class Config {
-  apiUrl = 'https://major-project-lsddqymvnl.now.sh';
+  apiUrl = 'MAJOR-PROJECT-BACKEND-URL-HERE';
 }
 ```
 
