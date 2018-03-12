@@ -16,8 +16,8 @@
             placeholder="Enter your username here"
             class="form-control"
             #username="ngModel">
-        <div class="help-block" *ngIf="!username.valid && (username.touched || username.dirty)">
-          <p class="text-warning" *ngIf="username.errors?.required">Username is required!</p>
+        <div class="alert alert-warning" *ngIf="!username.valid && (username.touched || username.dirty)">
+          <p *ngIf="username.errors?.required">Username is required!</p>
         </div>
       </div>
       <div class="form-group">
@@ -32,9 +32,9 @@
             placeholder="Enter your email here"
             class="form-control"
             #email="ngModel">
-        <div class="help-block" *ngIf="!email.valid && (email.touched || email.dirty)">
-          <p class="text-warning" *ngIf="email.errors?.required">Email is required!</p>
-          <p class="text-warning" *ngIf="email.errors?.email">Email must be a valid email!</p>
+        <div class="alert alert-warning" *ngIf="!email.valid && (email.touched || email.dirty)">
+          <p *ngIf="email.errors?.required">Email is required!</p>
+          <p *ngIf="email.errors?.email">Email must be a valid email!</p>
         </div>
       </div>
       <div class="form-group">
@@ -49,9 +49,9 @@
             placeholder="Enter your password here"
             class="form-control"
             #password="ngModel">
-        <div class="help-block" *ngIf="!password.valid && (password.touched || password.dirty)">
-          <p class="text-warning" *ngIf="password.errors?.required">Password is required!</p>
-          <p class="text-warning" *ngIf="password.errors?.minlength">Password must be atleast 8 characters long!</p>
+        <div class="alert alert-warning" *ngIf="!password.valid && (password.touched || password.dirty)">
+          <p *ngIf="password.errors?.required">Password is required!</p>
+          <p *ngIf="password.errors?.minlength">Password must be atleast 8 characters long!</p>
         </div>
       </div>
       <div class="form-group">
