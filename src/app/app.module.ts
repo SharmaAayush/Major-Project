@@ -16,6 +16,7 @@ import { AuthenticateUserService } from './authenticate-user.service';
 import { CoreComponent } from './core/core.component';
 import { MainComponent } from './main/main.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { UserHeaderComponent } from './user-header/user-header.component';
     ProfileComponent,
     CoreComponent,
     MainComponent,
-    UserHeaderComponent
+    UserHeaderComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { SignupComponent } from "./authentication/signup/signup.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { CoreComponent } from "./core/core.component";
 import { MainComponent } from "./main/main.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/core/login', pathMatch: 'full'},
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
   ]},
   {path: 'app', component: MainComponent, children: [
     {path: 'home', component: ProfileComponent}
-  ]}
+  ]},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
@@ -24,5 +26,5 @@ const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-  
+
 }

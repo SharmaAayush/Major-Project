@@ -11,6 +11,8 @@ import { AuthenticateUserService } from '../../authenticate-user.service';
 })
 export class SignupComponent implements OnInit {
   innerWidth;
+  isError = false;
+  errMsg = "";
 
   constructor(private apiService: ApiService, private authenticateUser: AuthenticateUserService) {
     this.innerWidth = window.innerWidth;
@@ -43,6 +45,15 @@ export class SignupComponent implements OnInit {
       let user = body.user;
       localStorage.setItem("x-auth-user", JSON.stringify(user));
       this.authenticateUser.loginUser(user);
+    }, (err: any) => {
+    this.errMsg = "";
+    this.isError = true;
+    let obj = this;
+    let errs = err;
+    let msg = JSON.parse(err._body).errors;
+    Object.keys(msg).forEach(function(key, idx) {
+    	obj.errMsg += msg[key][0] + "  ";
+    });
     });
   }
 
