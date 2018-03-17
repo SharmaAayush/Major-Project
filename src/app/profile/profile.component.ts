@@ -21,7 +21,11 @@ export class ProfileComponent implements OnInit {
         localStorage.removeItem('x-auth-user');
         this.router.navigate(['core/login']);
       }
-    })
+    }, (err: any) => {
+      console.log(err);
+      localStorage.removeItem('x-auth-user');
+      this.router.navigate(['core/login']);
+    });
   }
 
 }
