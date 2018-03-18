@@ -35,21 +35,19 @@ export class LoginComponent implements OnInit {
       "email": value.email,
       "password": value.password
     }
-    let response = this.apiService.login({
-    "user": user
-    });
+    let response = this.apiService.login(user);
     response.subscribe((res: any) => {
-      let body = JSON.parse(res._body);
-      let user = body.user;
+      let user = JSON.parse(res._body);
       localStorage.setItem("x-auth-user", JSON.stringify(user));
       this.authenticateUser.loginUser(user);
     }, (err: any) => {
-    this.isError = true;
-    this.errMsg = "";
-    let obj = this;
-    let errs = err;
-    let msg = JSON.parse(errs._body).errors.error[0];
-    this.errMsg = msg;
+      console.log(err);
+      this.isError = true;
+      this.errMsg = "";
+      let obj = this;
+      let errs = err;
+      let msg = JSON.parse(errs._body).errors.error[0];
+      this.errMsg = msg;
     })
   }
 

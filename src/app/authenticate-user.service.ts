@@ -23,9 +23,7 @@ export class AuthenticateUserService {
       'Content-Type': 'application/json'
     });
     return this.http.post(reqUrl, {
-      "user": {
-        "token": token
-      }
+      "token": token
     });
   }
 

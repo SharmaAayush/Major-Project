@@ -17,6 +17,7 @@ import { CoreComponent } from './core/core.component';
 import { MainComponent } from './main/main.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NearbyHospialsComponent } from './nearby-hospials/nearby-hospials.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CoreComponent,
     MainComponent,
     UserHeaderComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NearbyHospialsComponent
   ],
   imports: [
     BrowserModule,

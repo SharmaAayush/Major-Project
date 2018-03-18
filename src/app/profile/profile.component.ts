@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticateUserService } from '../authenticate-user.service';
@@ -9,8 +9,16 @@ import { AuthenticateUserService } from '../authenticate-user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  innerWidth;
 
-  constructor(private authenticateUser: AuthenticateUserService, private router: Router) { }
+  constructor(private authenticateUser: AuthenticateUserService, private router: Router) {
+    this.innerWidth = window.innerWidth;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+  }
 
   ngOnInit() {
     let user = JSON.parse(localStorage.getItem("x-auth-user"));

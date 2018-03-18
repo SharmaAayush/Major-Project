@@ -41,12 +41,9 @@ export class SignupComponent implements OnInit {
       this.isError = true;
       this.errMsg = "Password and Confirm Password must be same";
     }
-    let response = this.apiService.signup({
-      "user": user
-    });
+    let response = this.apiService.signup(user);
     response.subscribe((res: any) => {
-      let body = JSON.parse(res._body);
-      let user = body.user;
+      let user = JSON.parse(res._body);
       localStorage.setItem("x-auth-user", JSON.stringify(user));
       this.authenticateUser.loginUser(user);
     }, (err: any) => {

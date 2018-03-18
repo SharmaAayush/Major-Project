@@ -6,15 +6,18 @@ import { ProfileComponent } from "./profile/profile.component";
 import { CoreComponent } from "./core/core.component";
 import { MainComponent } from "./main/main.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { NearbyHospialsComponent } from "./nearby-hospials/nearby-hospials.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/core/login', pathMatch: 'full'},
   {path: 'core', component: CoreComponent, children: [
     {path: 'login', component: LoginComponent},
     {path: 'signup', component: SignupComponent},
+    {path: 'map', component: NearbyHospialsComponent}
   ]},
   {path: 'app', component: MainComponent, children: [
-    {path: 'home', component: ProfileComponent}
+    {path: 'home', component: ProfileComponent},
+    {path: 'map', component: NearbyHospialsComponent}
   ]},
   {path: '**', component: PageNotFoundComponent}
 ];
