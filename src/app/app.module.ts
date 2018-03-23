@@ -18,6 +18,8 @@ import { MainComponent } from './main/main.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NearbyHospialsComponent } from './nearby-hospials/nearby-hospials.component';
+import { StmpDiagComponent } from './v-doc/stmp-diag/stmp-diag.component';
+import { BdyDiagComponent } from './v-doc/bdy-diag/bdy-diag.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { NearbyHospialsComponent } from './nearby-hospials/nearby-hospials.compo
     MainComponent,
     UserHeaderComponent,
     PageNotFoundComponent,
-    NearbyHospialsComponent
+    NearbyHospialsComponent,
+    StmpDiagComponent,
+    BdyDiagComponent
   ],
   imports: [
     BrowserModule,
