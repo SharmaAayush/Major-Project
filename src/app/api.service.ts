@@ -17,7 +17,7 @@ export class ApiService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    return this.http.post(reqUrl, user, {headers: headers});
+    return this.http.post(reqUrl, user, { headers: headers });
     // parse _body of response object to get response object;
   }
 
@@ -26,7 +26,30 @@ export class ApiService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    return this.http.post(reqUrl, user, {headers: headers});
+    return this.http.post(reqUrl, user, { headers: headers });
     // parse _body of respoonse object to get response object;
+  }
+
+  public getSubLocations(token, locationId) {
+    let reqUrl = this.apiUrl + '/api/bodySubLocationList/';
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(reqUrl, {
+      "token": token,
+      "body_location_id": locationId
+    }, { headers: headers });
+  }
+
+  public getBodyLocationRelatedSymptoms(token, selectorStatus, locationId) {
+    let reqUrl = this.apiUrl + '/api/bodyLocationRelatedSymptoms/';
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(reqUrl, {
+      "token": token,
+      "selector_status": selectorStatus,
+      "body_sub_location_id": locationId
+    }, {headers: headers});
   }
 }

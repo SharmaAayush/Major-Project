@@ -1,0 +1,12 @@
+.panel-heading {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #dfd7ca;
+}
+.close-btn {
+  color: #f5f5f5;
+  padding-bottom: 0;
+  padding-top: 1px;
+  padding-left: 6px;
+  padding-right: 5px;
+  border-radius: 50%;
+}

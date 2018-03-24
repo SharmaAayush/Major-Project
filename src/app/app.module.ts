@@ -20,6 +20,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NearbyHospialsComponent } from './nearby-hospials/nearby-hospials.component';
 import { StmpDiagComponent } from './v-doc/stmp-diag/stmp-diag.component';
 import { BdyDiagComponent } from './v-doc/bdy-diag/bdy-diag.component';
+import { GeneralDataService } from './general-data.service';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { BdyDiagComponent } from './v-doc/bdy-diag/bdy-diag.component';
   providers: [
     ApiService,
     Config,
-    AuthenticateUserService
+    AuthenticateUserService,
+    GeneralDataService
   ],
   bootstrap: [AppComponent]
 })

@@ -47,14 +47,14 @@ export class SignupComponent implements OnInit {
       localStorage.setItem("x-auth-user", JSON.stringify(user));
       this.authenticateUser.loginUser(user);
     }, (err: any) => {
-    this.errMsg = "";
-    this.isError = true;
-    let obj = this;
-    let errs = err;
-    let msg = JSON.parse(err._body).errors;
-    Object.keys(msg).forEach(function(key, idx) {
-    	obj.errMsg += msg[key][0] + "  ";
-    });
+      this.errMsg = "";
+      this.isError = true;
+      let obj = this;
+      let errs = err;
+      let msg = JSON.parse(err._body).errors;
+      Object.keys(msg).forEach(function (key, idx) {
+        obj.errMsg += msg[key][0] + "  ";
+      });
     });
   }
 
