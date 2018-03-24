@@ -46,7 +46,39 @@
     </h2>
     <br>
     <div *ngFor="let symptom of symptoms" class="well well-sm">
-      {{symptom.Name}} <button (click)="removeSymptom(symptom)" class="btn btn-danger close-btn pull-right"><i class="fa fa-times"></i></button>
+      {{symptom.Name}}
+      <button (click)="removeSymptom(symptom)" class="btn btn-danger close-btn pull-right">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <div *ngIf="symptoms.length > 0">
+      <form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="age" class="control-label text-left">Age</label>
+              <input type="number" ngModel required name="age" id="age" placeholder="Enter your age" class="form-control" #age="ngModel">
+              <div class="alert alert-warning" *ngIf="!age.valid && (age.touched || age.dirty)">
+                <p *ngIf="age.errors?.required">Age is required</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="gender" class="control-label text-left">Gender</label>
+              <select name="gender" id="gender" ngModel required class="form-control" #gender="ngModel">
+                <option selected="true" value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+              <div class="alert alert-warning" *ngIf="!gender.valid && (gender.touched || gender.dirty)">
+                <p *ngIf="gender.errors?.required">Please select a gender</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button [disabled]="gender.invalid || age.invalid" (click)="diagnoseSymptoms(age.value, gender.value)" class="btn btn-success btn-block">Diagnose</button>
+      </form>
     </div>
   </div>
 </div>
+

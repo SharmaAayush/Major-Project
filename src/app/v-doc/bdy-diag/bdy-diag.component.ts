@@ -12,6 +12,7 @@ import { ApiService } from '../../api.service';
 export class BdyDiagComponent implements OnInit {
   bdyLocations;
   symptoms = [];
+  issues = [];
 
   constructor(private apiService: ApiService, private authenticateUser: AuthenticateUserService, private router: Router, private _genData: GeneralDataService) {
     this.bdyLocations = this._genData.getAllBodyLocations();
@@ -80,6 +81,36 @@ export class BdyDiagComponent implements OnInit {
         this.symptoms.splice(index, 1);
       }
     })
+  }
+
+  diagnoseSymptoms(age: any, gender: any) {
+    let token = JSON.parse(localStorage.getItem("x-auth-user")).token;
+    let symps = [];
+    let issueArr = this.issues;
+    let obj = this;
+    this.symptoms.forEach((item, index, array) => {
+      symps.push(item.ID);
+    });
+    let res = this.apiService.diagnoseSymptoms(token, gender, age, symps);
+    res.subscribe((data: any) => {
+      let body = JSON.parse(data._body);
+      issueArr = body;
+      obj.issues = issueArr;
+      for (let i = 0; i < issueArr.length; i++) {
+        let id = issueArr[i].ID;
+        obj.getIssueInfo(id, i);
+      }
+    });
+  }
+
+  getIssueInfo(issueId, index) {
+    let token = JSON.parse(localStorage.getItem("x-auth-user")).token;
+    let issueArr = this.issues;
+    let res = this.apiService.getIssueInfo(token, issueId);
+    res.subscribe((data: any) => {
+      let body = JSON.parse(data._body);
+      issueArr[index].info = body;
+    });
   }
 
 }

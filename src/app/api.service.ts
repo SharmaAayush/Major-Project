@@ -52,4 +52,28 @@ export class ApiService {
       "body_sub_location_id": locationId
     }, {headers: headers});
   }
+
+  public diagnoseSymptoms(token, gender, age, symptoms) {
+    let reqUrl = this.apiUrl + '/api/diagnosis/';
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(reqUrl, {
+      "token": token,
+      "gender": gender,
+      "age": age,
+      "symptoms": symptoms
+    }, {headers: headers});
+  }
+
+  public getIssueInfo(token, issueId) {
+    let reqUrl = this.apiUrl + '/api/issueInfo/';
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(reqUrl, {
+      "token": token,
+      "issue_id": issueId
+    }, {headers: headers});
+  }
 }

@@ -21,6 +21,7 @@ import { NearbyHospialsComponent } from './nearby-hospials/nearby-hospials.compo
 import { StmpDiagComponent } from './v-doc/stmp-diag/stmp-diag.component';
 import { BdyDiagComponent } from './v-doc/bdy-diag/bdy-diag.component';
 import { GeneralDataService } from './general-data.service';
+import { ReportComponent } from './v-doc/report/report.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { GeneralDataService } from './general-data.service';
     PageNotFoundComponent,
     NearbyHospialsComponent,
     StmpDiagComponent,
-    BdyDiagComponent
+    BdyDiagComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

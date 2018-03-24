@@ -1,0 +1,66 @@
+<h2>
+  <strong>{{issueInfo.name}}</strong>
+</h2>
+<br />
+<div class="panel-group" id="accordion">
+  <div *ngIf="issueInfo.Description" class="panel panel-default">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          Description
+        </h4>
+      </div>
+    </a>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="panel-body">{{issueInfo.Description}}</div>
+    </div>
+  </div>
+  <div *ngIf="issueInfo.DescriptionShort" class="panel panel-default">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          Description Short
+        </h4>
+      </div>
+    </a>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">{{issueInfo.DescriptionShort}}</div>
+    </div>
+  </div>
+  <div *ngIf="issueInfo.PossibleSymptoms" class="panel panel-default">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          Possible Symptoms
+        </h4>
+      </div>
+    </a>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">{{issueInfo.PossibleSymptoms}}</div>
+    </div>
+  </div>
+  <div *ngIf="issueInfo.TreatmentDescription" class="panel panel-default">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          Treatment Description
+        </h4>
+      </div>
+    </a>
+    <div id="collapse4" class="panel-collapse collapse">
+      <div class="panel-body">{{issueInfo.TreatmentDescription}}</div>
+    </div>
+  </div>
+  <div *ngIf="issueInfo.MedicalCondition" class="panel panel-default">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          Medical Condition
+        </h4>
+      </div>
+    </a>
+    <div id="collapse5" class="panel-collapse collapse">
+      <div class="panel-body">{{issueInfo.MedicalCondition}}</div>
+    </div>
+  </div>
+</div>
