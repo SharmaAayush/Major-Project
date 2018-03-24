@@ -1,4 +1,4 @@
-<div class="tab">
+<div *ngIf="issueInfo && (issueInfo.length > 0)" class="tab">
   <button *ngFor="let issue of issueInfo" class="tablinks" (click)="openCity($event, issue.ID)">{{issue.info.Name}}</button>
 </div>
 
@@ -71,9 +71,11 @@
   </div>
 </div>
 
-<div *ngIf="issueInfo.length !> 0" class="alert alert-warning">
+<div *ngIf="!issueInfo || (issueInfo.length !> 0)" class="alert alert-warning">
   <strong>Sorry</strong>
   <br> No diagnosis available for the given combination of symptoms. Please go back to
   <a routerLink="/app/bdy-diag">
-    <i class="fa fa-stethoscope fa-lg"></i>&ngsp;Diagnose</a> page to try again.
+    <button class="btn btn-sm btn-primary">
+      <i class="fa fa-stethoscope fa-lg"></i>&ngsp;Diagnose</button></a>
+   page to try again.
 </div>
