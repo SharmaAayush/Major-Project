@@ -1,66 +1,82 @@
-<h2>
-  <strong>{{issueInfo.name}}</strong>
-</h2>
-<br />
-<div class="panel-group" id="accordion">
-  <div *ngIf="issueInfo.Description" class="panel panel-default">
-    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          Description
-        </h4>
+<div class="tab">
+  <button *ngFor="let issue of issueInfo" class="tablinks" (click)="openCity($event, issue.ID)">{{issue.info.Name}}</button>
+</div>
+
+<div *ngFor="let issue of issueInfo" id="{{issue.ID}}" class="tabcontent">
+    <h2 style="text-align: center;">
+        <strong>{{issue.info.Name}}</strong>
+      </h2>
+      <br />
+      <div class="panel-group" >
+        <div *ngIf="issue.info.Description" class="panel panel-default">
+          <a data-toggle="collapse" href="#description{{issue.ID}}">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                Description
+              </h4>
+            </div>
+          </a>
+          <div id="description{{issue.ID}}" class="panel-collapse collapse in">
+            <div class="panel-body">{{issue.info.Description}}</div>
+          </div>
+        </div>
+        <div *ngIf="issue.info.DescriptionShort" class="panel panel-default">
+          <a data-toggle="collapse" href="#descShort{{issue.ID}}">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                Description Short
+              </h4>
+            </div>
+          </a>
+          <div id="descShort{{issue.ID}}" class="panel-collapse collapse">
+            <div class="panel-body">{{issue.info.DescriptionShort}}</div>
+          </div>
+        </div>
+        <div *ngIf="issue.info.PossibleSymptoms" class="panel panel-default">
+          <a data-toggle="collapse" href="#possibleSymptom{{issue.ID}}">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                Possible Symptoms
+              </h4>
+            </div>
+          </a>
+          <div id="possibleSymptom{{issue.ID}}" class="panel-collapse collapse">
+            <div class="panel-body">{{issue.info.PossibleSymptoms}}</div>
+          </div>
+        </div>
+        <div *ngIf="issue.info.TreatmentDescription" class="panel panel-default">
+          <a data-toggle="collapse" href="#treatmentDesc{{issue.ID}}">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                Treatment Description
+              </h4>
+            </div>
+          </a>
+          <div id="treatmentDesc{{issue.ID}}" class="panel-collapse collapse">
+            <div class="panel-body">{{issue.info.TreatmentDescription}}</div>
+          </div>
+        </div>
+        <div *ngIf="issue.info.MedicalCondition" class="panel panel-default">
+          <a data-toggle="collapse" href="#collapse5">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                Medical Condition
+              </h4>
+            </div>
+          </a>
+          <div id="collapse5" class="panel-collapse collapse">
+            <div class="panel-body">{{issue.info.MedicalCondition}}</div>
+          </div>
+        </div>
       </div>
-    </a>
-    <div id="collapse1" class="panel-collapse collapse in">
-      <div class="panel-body">{{issueInfo.Description}}</div>
-    </div>
-  </div>
-  <div *ngIf="issueInfo.DescriptionShort" class="panel panel-default">
-    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          Description Short
-        </h4>
-      </div>
-    </a>
-    <div id="collapse2" class="panel-collapse collapse">
-      <div class="panel-body">{{issueInfo.DescriptionShort}}</div>
-    </div>
-  </div>
-  <div *ngIf="issueInfo.PossibleSymptoms" class="panel panel-default">
-    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          Possible Symptoms
-        </h4>
-      </div>
-    </a>
-    <div id="collapse3" class="panel-collapse collapse">
-      <div class="panel-body">{{issueInfo.PossibleSymptoms}}</div>
-    </div>
-  </div>
-  <div *ngIf="issueInfo.TreatmentDescription" class="panel panel-default">
-    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          Treatment Description
-        </h4>
-      </div>
-    </a>
-    <div id="collapse4" class="panel-collapse collapse">
-      <div class="panel-body">{{issueInfo.TreatmentDescription}}</div>
-    </div>
-  </div>
-  <div *ngIf="issueInfo.MedicalCondition" class="panel panel-default">
-    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          Medical Condition
-        </h4>
-      </div>
-    </a>
-    <div id="collapse5" class="panel-collapse collapse">
-      <div class="panel-body">{{issueInfo.MedicalCondition}}</div>
-    </div>
-  </div>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
 </div>

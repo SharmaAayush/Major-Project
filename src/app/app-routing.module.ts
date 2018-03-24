@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { NearbyHospialsComponent } from "./nearby-hospials/nearby-hospials.component";
 import { StmpDiagComponent } from "./v-doc/stmp-diag/stmp-diag.component";
 import { BdyDiagComponent } from "./v-doc/bdy-diag/bdy-diag.component";
+import { ReportComponent } from "./v-doc/report/report.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/core/login', pathMatch: 'full'},
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
     {path: 'home', component: ProfileComponent},
     {path: 'map', component: NearbyHospialsComponent},
     {path: 'symp-diag', component: StmpDiagComponent},
-    {path: 'bdy-diag', component: BdyDiagComponent}
+    {path: 'bdy-diag', component: BdyDiagComponent},
+    {path: 'report', component: ReportComponent}
   ]},
   {path: '**', component: PageNotFoundComponent}
 ];

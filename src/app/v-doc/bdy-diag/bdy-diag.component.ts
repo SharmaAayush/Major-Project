@@ -3,6 +3,7 @@ import { AuthenticateUserService } from '../../authenticate-user.service';
 import { Router } from '@angular/router';
 import { GeneralDataService } from '../../general-data.service';
 import { ApiService } from '../../api.service';
+import { ReportServiceService } from '../../report-service.service';
 
 @Component({
   selector: 'app-bdy-diag',
@@ -13,8 +14,9 @@ export class BdyDiagComponent implements OnInit {
   bdyLocations;
   symptoms = [];
   issues = [];
+  numberOfIssues = 0;
 
-  constructor(private apiService: ApiService, private authenticateUser: AuthenticateUserService, private router: Router, private _genData: GeneralDataService) {
+  constructor(private apiService: ApiService, private authenticateUser: AuthenticateUserService, private router: Router, private _genData: GeneralDataService, private reportService: ReportServiceService) {
     this.bdyLocations = this._genData.getAllBodyLocations();
   }
 
@@ -50,6 +52,7 @@ export class BdyDiagComponent implements OnInit {
         for (let j = 0; j < bdyLocations[i].subLocations.length; j++) {
           let res2 = this.apiService.getBodyLocationRelatedSymptoms(
             token, "man", bdyLocations[i].subLocations[j].id
+            // "man" or "woman"
           );
           res2.subscribe((data2: any) => {
             let symptoms = JSON.parse(data2._body);
@@ -58,8 +61,6 @@ export class BdyDiagComponent implements OnInit {
         }
       });
     }
-    window["bdyLocations"] = this.bdyLocations;
-    console.log(this.bdyLocations);
   }
 
   addSymptom(symptom) {
@@ -107,9 +108,15 @@ export class BdyDiagComponent implements OnInit {
     let token = JSON.parse(localStorage.getItem("x-auth-user")).token;
     let issueArr = this.issues;
     let res = this.apiService.getIssueInfo(token, issueId);
+    let obj = this;
     res.subscribe((data: any) => {
       let body = JSON.parse(data._body);
       issueArr[index].info = body;
+      obj.numberOfIssues++;
+      if (obj.numberOfIssues !< obj.issues.length) {
+        obj.reportService.setIssuesInfo(obj.issues);
+        obj.router.navigate(['/app/report']);
+      }
     });
   }
 
