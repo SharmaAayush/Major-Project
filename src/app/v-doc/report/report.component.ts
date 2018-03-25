@@ -11,7 +11,7 @@ export class ReportComponent implements OnInit {
 
   constructor(private reportService: ReportServiceService) {
     this.issueInfo = this.reportService.getIssuesInfo();
-    console.log(this.issueInfo);
+    window["issueInfo"] = this.issueInfo;
   }
 
   ngOnInit() {
@@ -22,7 +22,6 @@ export class ReportComponent implements OnInit {
   }
 
   openCity(event, id) {
-    console.log(event);
     let i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -34,10 +33,6 @@ export class ReportComponent implements OnInit {
     }
     document.getElementById(id).style.display = "block";
     event.currentTarget.className += " active";
-  }
-
-  stringify(issue) {
-    return JSON.stringify(issue.info.Name, null, 2);
   }
 
 }

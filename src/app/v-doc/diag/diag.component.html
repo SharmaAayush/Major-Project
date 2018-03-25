@@ -1,0 +1,31 @@
+<div *ngIf="isFullPath" class="row">
+  <a routerLink="/app/diag/bdy-diag">
+    <div class="col-sm-6 my-card">
+      <h1 class="text-center text-uppercase font-weight-bold">Body Location based diagnosis</h1>
+      <br />
+      <p class="text-center lead">Diagnose your symptoms based on the body locations they affect. Choose a body location from a list of body locations
+        then choose a sub-location based on that body location then select a symptom from the list of symptoms that affect
+        that location. Repeat this process untill you have selected all the symptoms you are suffering from then click on
+        <kbd>Diagnose</kbd> button to generate a report.
+      </p>
+    </div>
+  </a>
+  <a routerLink="/app/diag/symp-diag">
+    <div class="col-sm-6 my-card">
+      <h1 class="text-center text-uppercase font-weight-bold">Form based diagnosis</h1>
+      <br />
+      <br />
+      <br />
+      <p class="text-center lead">Use the traditional form to submit your details. Enter your age, gender, and list of symptoms you are suffering from
+        and click on the
+        <kbd>Diagnose</kbd> button to submit the form. Submitting the form will generate a report based on the details you have entered.
+      </p>
+    </div>
+  </a>
+</div>
+
+<div *ngIf="!isFullPath" class="row">
+  <div class="col-xs-12">
+    <router-outlet></router-outlet>
+  </div>
+</div>

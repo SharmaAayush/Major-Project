@@ -71,7 +71,7 @@
   </div>
 </div>
 
-<div *ngIf="!issueInfo || (issueInfo.length !> 0)" class="alert alert-warning">
+<div *ngIf="!issueInfo || (issueInfo.length <= 0)" class="alert alert-warning">
   <strong>Sorry</strong>
   <br> No diagnosis available for the given combination of symptoms. Please go back to
   <a routerLink="/app/bdy-diag">

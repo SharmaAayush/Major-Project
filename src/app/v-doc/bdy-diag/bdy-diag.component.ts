@@ -116,7 +116,7 @@ export class BdyDiagComponent implements OnInit {
       obj.numberOfIssues++;
       if (obj.numberOfIssues !< obj.issues.length) {
         obj.reportService.setIssuesInfo(obj.issues);
-        obj.router.navigate(['/app/report']);
+        obj.router.navigate(['/app/diag/report']);
       }
     });
   }
