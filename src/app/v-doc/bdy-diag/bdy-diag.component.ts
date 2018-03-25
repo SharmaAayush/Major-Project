@@ -30,7 +30,7 @@ export class BdyDiagComponent implements OnInit {
         this.router.navigate(['core/login']);
       } else {
         this.bdyLocations = this._genData.getAllBodyLocations();
-        this.getSubLocations();
+        // this.getSubLocations();
       }
     }, (err: any) => {
       console.log(err);
@@ -39,7 +39,8 @@ export class BdyDiagComponent implements OnInit {
     });
   }
 
-  getSubLocations() {
+  getSubLocations(gender) {
+    let selector_status = gender == "male" ? "man" : "woman";
     let token = JSON.parse(localStorage.getItem("x-auth-user")).token;
     let bdyLocations = this.bdyLocations;
     for (let i = 0; i < this.bdyLocations.length; i++) {
@@ -51,7 +52,7 @@ export class BdyDiagComponent implements OnInit {
         bdyLocations[i].subLocations = body;
         for (let j = 0; j < bdyLocations[i].subLocations.length; j++) {
           let res2 = this.apiService.getBodyLocationRelatedSymptoms(
-            token, "man", bdyLocations[i].subLocations[j].id
+            token, selector_status, bdyLocations[i].subLocations[j].id
             // "man" or "woman"
           );
           res2.subscribe((data2: any) => {
