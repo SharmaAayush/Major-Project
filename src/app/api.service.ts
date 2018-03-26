@@ -76,4 +76,15 @@ export class ApiService {
       "issue_id": issueId
     }, {headers: headers});
   }
+
+  public getSympttomsList(token, gender) {
+    let reqUrl = this.apiUrl + '/api/symptomList/';
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(reqUrl, {
+      "token": token,
+      "gender": gender
+    }, {headers: headers});
+  }
 }

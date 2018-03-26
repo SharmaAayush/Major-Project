@@ -114,7 +114,7 @@ export class BdyDiagComponent implements OnInit {
       let body = JSON.parse(data._body);
       issueArr[index].info = body;
       obj.numberOfIssues++;
-      if (obj.numberOfIssues !< obj.issues.length) {
+      if (obj.numberOfIssues >= obj.issues.length) {
         obj.reportService.setIssuesInfo(obj.issues);
         obj.router.navigate(['/app/diag/report']);
       }
