@@ -39,10 +39,33 @@ export class BdyDiagComponent implements OnInit {
     });
   }
 
+  cleansbdyLocations() {
+    let obj = this;
+    let itemsToRemove = [];
+    setTimeout(() => {
+      let arr = obj.bdyLocations;
+      for (let i = 0; i < arr.length; i++) {
+        arr[i].subLocations.forEach((item, index, array) => {
+          if (item.symptoms.length <= 0) {
+            itemsToRemove.push({ i, index });
+          }
+          if (i == arr.length - 1 && index == array.length - 1) {
+            for (let j = itemsToRemove.length - 1; j >= 0; j--) {
+              obj.bdyLocations[itemsToRemove[j].i].subLocations.splice(itemsToRemove[j].index, 1);
+              if (j == 0) {
+              }
+            }
+          }
+        });
+      }
+    }, 750);
+  }
+
   getSubLocations(gender) {
     let selector_status = gender == "male" ? "man" : "woman";
     let token = JSON.parse(localStorage.getItem("x-auth-user")).token;
     let bdyLocations = this.bdyLocations;
+    let obj = this;
     for (let i = 0; i < this.bdyLocations.length; i++) {
       let res = this.apiService.getSubLocations(
         token, this.bdyLocations[i].id
@@ -58,6 +81,9 @@ export class BdyDiagComponent implements OnInit {
           res2.subscribe((data2: any) => {
             let symptoms = JSON.parse(data2._body);
             bdyLocations[i].subLocations[j].symptoms = symptoms;
+            if (i == obj.bdyLocations.length - 1 && j == bdyLocations[i].subLocations.length - 1) {
+              obj.cleansbdyLocations();
+            }
           })
         }
       });
@@ -98,6 +124,10 @@ export class BdyDiagComponent implements OnInit {
       let body = JSON.parse(data._body);
       issueArr = body;
       obj.issues = issueArr;
+      if (issueArr.length <= 0) {
+        obj.reportService.setIssuesInfo(obj.issues);
+        obj.router.navigate(['/app/diag/report']);
+      }
       for (let i = 0; i < issueArr.length; i++) {
         let id = issueArr[i].ID;
         obj.getIssueInfo(id, i);

@@ -1,0 +1,18 @@
+#my_preloader_ele {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #3ab49a;
+  z-index: 999;
+}
+#my_preloader_ele img {
+  display: block;
+  margin: auto;
+  width: 200px;
+  height: 150px;
+  position: relative;
+  top: 50%;
+  margin-top: -100px;
+}
