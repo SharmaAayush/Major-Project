@@ -24,7 +24,6 @@ import { GeneralDataService } from './general-data.service';
 import { ReportComponent } from './v-doc/report/report.component';
 import { ReportServiceService } from './report-service.service';
 import { DiagComponent } from './v-doc/diag/diag.component';
-import { LoaderInterceptorService } from './interceptors/loader-interceptor.service';
 
 
 @NgModule({
