@@ -66,8 +66,9 @@ export class StmpDiagComponent implements OnInit {
     if (!sympExists) {
       obj.sufferingSymptoms.push(symp);
     }
+    console.log(obj.sufferingSymptoms);
   }
-
+  
   removeSymptom(symptom) {
     let obj = this;
     obj.sufferingSymptoms.forEach((item, index, array) => {
@@ -75,6 +76,7 @@ export class StmpDiagComponent implements OnInit {
         obj.sufferingSymptoms.splice(index, 1);
       }
     })
+    console.log(obj.sufferingSymptoms);
   }
 
   diagnoseSymptoms(age, gender) {
