@@ -24,6 +24,7 @@ import { GeneralDataService } from './general-data.service';
 import { ReportComponent } from './v-doc/report/report.component';
 import { ReportServiceService } from './report-service.service';
 import { DiagComponent } from './v-doc/diag/diag.component';
+import { AuthGuardService } from './auth-guard.service';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { DiagComponent } from './v-doc/diag/diag.component';
     Config,
     AuthenticateUserService,
     GeneralDataService,
-    ReportServiceService
+    ReportServiceService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

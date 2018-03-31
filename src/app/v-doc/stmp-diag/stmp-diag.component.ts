@@ -16,24 +16,11 @@ export class StmpDiagComponent implements OnInit {
   issues = [];
   numberOfIssues = 0;
 
-  constructor(private authenticateUser: AuthenticateUserService, private router: Router, private _genData: GeneralDataService, private apiService: ApiService, private reportService: ReportServiceService) { }
+  constructor(private authenticateUser: AuthenticateUserService, private router: Router, private _genData: GeneralDataService, private apiService: ApiService, private reportService: ReportServiceService) {
+  }
 
   ngOnInit() {
-    let user = JSON.parse(localStorage.getItem("x-auth-user"));
-    let authStatus = this.authenticateUser.authenticateUser(user);
-    authStatus.subscribe((res: any) => {
-      let flag = JSON.parse(res._body).flag;
-      if (flag != 1) {
-        localStorage.removeItem('x-auth-user');
-        this.router.navigate(['core/login']);
-      } else {
-        this.symptoms = this._genData.getAllSymptoms();
-      }
-    }, (err: any) => {
-      console.log(err);
-      localStorage.removeItem('x-auth-user');
-      this.router.navigate(['core/login']);
-    });
+    this.symptoms = this._genData.getAllSymptoms();
   }
 
   getSympomsList(gender: any) {
@@ -42,7 +29,6 @@ export class StmpDiagComponent implements OnInit {
     let obj = this;
     res.subscribe((data: any) => {
       obj.symptoms = JSON.parse(data._body);
-      console.log(obj.symptoms);
     })
   }
 
@@ -66,7 +52,6 @@ export class StmpDiagComponent implements OnInit {
     if (!sympExists) {
       obj.sufferingSymptoms.push(symp);
     }
-    console.log(obj.sufferingSymptoms);
   }
   
   removeSymptom(symptom) {
@@ -76,7 +61,6 @@ export class StmpDiagComponent implements OnInit {
         obj.sufferingSymptoms.splice(index, 1);
       }
     })
-    console.log(obj.sufferingSymptoms);
   }
 
   diagnoseSymptoms(age, gender) {

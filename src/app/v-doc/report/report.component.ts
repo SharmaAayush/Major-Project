@@ -11,7 +11,6 @@ export class ReportComponent implements OnInit {
 
   constructor(private reportService: ReportServiceService) {
     this.issueInfo = this.reportService.getIssuesInfo();
-    window["issueInfo"] = this.issueInfo;
   }
 
   ngOnInit() {

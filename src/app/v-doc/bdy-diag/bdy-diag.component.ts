@@ -21,22 +21,7 @@ export class BdyDiagComponent implements OnInit {
   }
 
   ngOnInit() {
-    let user = JSON.parse(localStorage.getItem("x-auth-user"));
-    let authStatus = this.authenticateUser.authenticateUser(user);
-    authStatus.subscribe((res: any) => {
-      let flag = JSON.parse(res._body).flag;
-      if (flag != 1) {
-        localStorage.removeItem('x-auth-user');
-        this.router.navigate(['core/login']);
-      } else {
-        this.bdyLocations = this._genData.getAllBodyLocations();
-        // this.getSubLocations();
-      }
-    }, (err: any) => {
-      console.log(err);
-      localStorage.removeItem('x-auth-user');
-      this.router.navigate(['core/login']);
-    });
+    this.bdyLocations = this._genData.getAllBodyLocations();
   }
 
   cleansbdyLocations() {

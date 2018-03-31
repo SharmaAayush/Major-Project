@@ -11,6 +11,7 @@ import { StmpDiagComponent } from "./v-doc/stmp-diag/stmp-diag.component";
 import { BdyDiagComponent } from "./v-doc/bdy-diag/bdy-diag.component";
 import { ReportComponent } from "./v-doc/report/report.component";
 import { DiagComponent } from "./v-doc/diag/diag.component";
+import { AuthGuardService } from "./auth-guard.service";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/core/login', pathMatch: 'full'},
@@ -19,7 +20,7 @@ const appRoutes: Routes = [
     {path: 'signup', component: SignupComponent},
     {path: 'map', component: NearbyHospialsComponent}
   ]},
-  {path: 'app', component: MainComponent, children: [
+  {path: 'app', canActivate: [AuthGuardService], component: MainComponent, children: [
     {path: 'home', component: ProfileComponent},
     {path: 'map', component: NearbyHospialsComponent},
     {path: 'diag', component: DiagComponent, children: [
