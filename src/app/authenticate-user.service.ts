@@ -3,6 +3,7 @@ import { Http, Headers } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { Config } from './config';
+import 'rxjs/add/operator/do';
 
 @Injectable()
 export class AuthenticateUserService {
@@ -22,8 +23,13 @@ export class AuthenticateUserService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
+    document.getElementById("my_preloader_ele").style.display = "block";
     return this.http.post(reqUrl, {
       "token": token
+    }).do((event) => {
+      document.getElementById("my_preloader_ele").style.display = "none";
+    }, (err) => {
+      document.getElementById("my_preloader_ele").style.display = "none";
     });
   }
 
@@ -32,7 +38,6 @@ export class AuthenticateUserService {
       let response = this.authenticateUser(user);
       response.subscribe((res: any) => {
         let flag = JSON.parse(res._body).flag;
-        console.log(flag);
         if (flag == 1) {
           this.router.navigate(['app/home']);
         }
