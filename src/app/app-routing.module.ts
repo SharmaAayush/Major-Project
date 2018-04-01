@@ -12,6 +12,8 @@ import { BdyDiagComponent } from "./v-doc/bdy-diag/bdy-diag.component";
 import { ReportComponent } from "./v-doc/report/report.component";
 import { DiagComponent } from "./v-doc/diag/diag.component";
 import { AuthGuardService } from "./auth-guard.service";
+import { ReportsComponent } from "./reports/reports.component";
+import { SingleReportComponent } from "./reports/single-report/single-report.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/core/login', pathMatch: 'full'},
@@ -28,6 +30,9 @@ const appRoutes: Routes = [
       {path: 'bdy-diag', component: BdyDiagComponent},
       {path: 'report', component: ReportComponent}
     ]},
+    {path: 'reports', component: ReportsComponent, children: [
+      {path: ':id', component: SingleReportComponent}
+    ]}
   ]},
   {path: '**', component: PageNotFoundComponent}
 ];

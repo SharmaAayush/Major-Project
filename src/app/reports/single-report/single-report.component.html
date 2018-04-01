@@ -1,0 +1,110 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h3>Age Selected: {{report.age}}</h3>
+    <br>
+    <h3>Symptoms Selected:</h3>
+    <div *ngFor="let symptom of report.symptoms" class="well well-sm">
+      {{symptom.name}}
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <h3>Gender Selected:
+      <span style="text-transform: capitalize">{{report.gender}}</span>
+    </h3>
+    <br>
+    <h3>Issues Diagnosed</h3>
+    <div class="list-group">
+      <ng-template ngFor let-issue [ngForOf]="report.issues">
+        <button (click)="showIssue(issue)" class="list-group-item">{{issue.info.Name}}</button>
+        <div id="{{issue.ID}}" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <button (click)="hideIssue(issue)" class="close">&times;</button>
+                <h4 class="modal-title">{{issue.info.Name}}</h4>
+              </div>
+              <div class="modal-body">
+
+                <!-- Report Body to show all the issues -->
+
+                <div class="panel-group">
+                  <div *ngIf="issue.info.Description" class="panel panel-default">
+                    <a data-toggle="collapse" href="#description{{issue.ID}}">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          Description
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="description{{issue.ID}}" class="panel-collapse collapse">
+                      <div class="panel-body">{{issue.info.Description}}</div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="issue.info.DescriptionShort" class="panel panel-default">
+                    <a data-toggle="collapse" href="#descriptionShort{{issue.ID}}">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          DescriptionShort
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="descriptionShort{{issue.ID}}" class="panel-collapse collapse">
+                      <div class="panel-body">{{issue.info.DescriptionShort}}</div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="issue.info.MedicalCondition" class="panel panel-default">
+                    <a data-toggle="collapse" href="#MedicalCondition{{issue.ID}}">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                            MedicalCondition
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="MedicalCondition{{issue.ID}}" class="panel-collapse collapse">
+                      <div class="panel-body">{{issue.info.MedicalCondition}}</div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="issue.info.PossibleSymptoms" class="panel panel-default">
+                    <a data-toggle="collapse" href="#PossibleSymptoms{{issue.ID}}">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                            PossibleSymptoms
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="PossibleSymptoms{{issue.ID}}" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        {{issue.info.PossibleSymptoms}}
+                        <!-- <button *ngFor="let symp of issue.info.PossibleSymptoms" class="btn btn-primary">{{symp}}</button> -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="issue.info.TreatmentDescription" class="panel panel-default">
+                    <a data-toggle="collapse" href="#TreatmentDescription{{issue.ID}}">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                            TreatmentDescription
+                        </h4>
+                      </div>
+                    </a>
+                    <div id="TreatmentDescription{{issue.ID}}" class="panel-collapse collapse">
+                      <div class="panel-body">{{issue.info.TreatmentDescription}}</div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

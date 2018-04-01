@@ -25,6 +25,9 @@ import { ReportComponent } from './v-doc/report/report.component';
 import { ReportServiceService } from './report-service.service';
 import { DiagComponent } from './v-doc/diag/diag.component';
 import { AuthGuardService } from './auth-guard.service';
+import { ReportsComponent } from './reports/reports.component';
+import { ReportsService } from './reports.service';
+import { SingleReportComponent } from './reports/single-report/single-report.component';
 
 
 @NgModule({
@@ -42,7 +45,9 @@ import { AuthGuardService } from './auth-guard.service';
     StmpDiagComponent,
     BdyDiagComponent,
     ReportComponent,
-    DiagComponent
+    DiagComponent,
+    ReportsComponent,
+    SingleReportComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,8 @@ import { AuthGuardService } from './auth-guard.service';
     AuthenticateUserService,
     GeneralDataService,
     ReportServiceService,
-    AuthGuardService
+    AuthGuardService,
+    ReportsService
   ],
   bootstrap: [AppComponent]
 })

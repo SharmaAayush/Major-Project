@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticateUserService } from '../authenticate-user.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +12,7 @@ import { AuthenticateUserService } from '../authenticate-user.service';
 export class ProfileComponent implements OnInit {
   innerWidth;
 
-  constructor(private authenticateUser: AuthenticateUserService, private router: Router) {
+  constructor(private authenticateUser: AuthenticateUserService, private router: Router, private apiService: ApiService) {
     this.innerWidth = window.innerWidth;
   }
 

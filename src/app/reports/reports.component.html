@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="list-group">
+      <a *ngFor="let report of reportsList" routerLinkActive="active" class="list-group-item" routerLink="{{report.id}}">{{ report.created_at | date:'medium'}}</a>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <router-outlet></router-outlet>
+  </div>
+</div>
