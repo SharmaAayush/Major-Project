@@ -34,7 +34,7 @@ export class AuthenticateUserService {
       response.subscribe((res: any) => {
         let flag = JSON.parse(res._body).flag;
         if (flag == 1) {
-          this.router.navigate(['app/home']);
+          this.router.navigate(['app/reports']);
         }
       });
     }
