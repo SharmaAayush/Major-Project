@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <label for="age" class="control-label text-left">Age</label>
-        <input type="number" ngModel required name="age" id="age" placeholder="Enter your age" class="form-control" #age="ngModel">
+        <input type="number" ngModel min="0" required name="age" id="age" placeholder="Enter your age" class="form-control" #age="ngModel">
         <div class="alert alert-warning" *ngIf="!age.valid && (age.touched || age.dirty)">
           <p *ngIf="age.errors?.required">Age is required</p>
         </div>
