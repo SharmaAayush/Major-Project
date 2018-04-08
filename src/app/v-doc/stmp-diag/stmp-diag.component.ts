@@ -76,6 +76,10 @@ export class StmpDiagComponent implements OnInit {
       let body = JSON.parse(data._body);
       issueArr = body;
       obj.issues = issueArr;
+      if (issueArr.length <= 0) {
+        obj.reportService.setIssuesInfo(obj.issues);
+        obj.router.navigate(['/app/diag/report']);
+      }
       for (let i = 0; i < issueArr.length; i++) {
         let id = issueArr[i].ID;
         obj.getIssueInfo(id, i);
