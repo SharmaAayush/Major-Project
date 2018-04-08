@@ -138,4 +138,19 @@ export class ApiService {
       document.getElementById("my_preloader_ele").style.display = "none";
     });
   }
+
+  public getCommonSymptomsAndIssue(token) {
+    let reqUrl = this.apiUrl + '/api/commonSymptomsAndIssue/';
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    document.getElementById("my_preloader_ele").style.display = "block";
+    return this.http.post(reqUrl, {
+      "token": token
+    }, {headers: headers}).do((event) => {
+      document.getElementById("my_preloader_ele").style.display = "none";
+    }, (err) => {
+      document.getElementById("my_preloader_ele").style.display = "none";
+    });
+  }
 }

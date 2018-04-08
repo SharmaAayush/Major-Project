@@ -7,5 +7,9 @@
   </div>
   <div class="col-sm-8">
     <router-outlet></router-outlet>
+    <ng-template [ngIf]="isFullPath && isDataAvailable">
+      <chart [type]="type" [data]="issuesData" style="height: 35vh;" [options]="options"></chart>
+      <chart [type]="type" [data]="symptomData" style="height: 35vh;" [options]="options"></chart>
+    </ng-template>
   </div>
 </div>

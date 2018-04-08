@@ -28,7 +28,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { ReportsComponent } from './reports/reports.component';
 import { ReportsService } from './reports.service';
 import { SingleReportComponent } from './reports/single-report/single-report.component';
-
+import { ChartModule } from 'angular2-chartjs';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,8 @@ import { SingleReportComponent } from './reports/single-report/single-report.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ChartModule
   ],
   providers: [
     ApiService,
