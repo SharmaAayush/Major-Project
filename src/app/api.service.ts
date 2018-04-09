@@ -18,11 +18,11 @@ export class ApiService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    document.getElementById("my_preloader_ele").style.display = "block";
+    if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; } if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; }
     return this.http.post(reqUrl, user, { headers: headers }).do((event) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     }, (err: any) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     });
     // parse _body of response object to get response object;
   }
@@ -32,11 +32,11 @@ export class ApiService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    document.getElementById("my_preloader_ele").style.display = "block";
+    if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; } if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; }
     return this.http.post(reqUrl, user, { headers: headers }).do((event) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     }, (err) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     });
     // parse _body of respoonse object to get response object;
   }
@@ -46,14 +46,14 @@ export class ApiService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    document.getElementById("my_preloader_ele").style.display = "block";
+    if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; } if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; }
     return this.http.post(reqUrl, {
       "token": token,
       "body_location_id": locationId
     }, { headers: headers }).do((event) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     }, (err) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     });
   }
 
@@ -62,15 +62,15 @@ export class ApiService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    document.getElementById("my_preloader_ele").style.display = "block";
+    if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; } if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; }
     return this.http.post(reqUrl, {
       "token": token,
       "selector_status": selectorStatus,
       "body_sub_location_id": locationId
     }, { headers: headers }).do((event) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     }, (err) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     })
   }
 
@@ -79,16 +79,16 @@ export class ApiService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    document.getElementById("my_preloader_ele").style.display = "block";
+    if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; } if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; }
     return this.http.post(reqUrl, {
       "token": token,
       "gender": gender,
       "age": age,
       "symptoms": symptoms
     }, { headers: headers }).do((event) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     }, (err) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     })
   }
 
@@ -97,14 +97,14 @@ export class ApiService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    document.getElementById("my_preloader_ele").style.display = "block";
+    if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; } if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; }
     return this.http.post(reqUrl, {
       "token": token,
       "issue_id": issueId
     }, { headers: headers }).do((event) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     }, (err) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     });
   }
 
@@ -113,14 +113,14 @@ export class ApiService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    document.getElementById("my_preloader_ele").style.display = "block";
+    if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; } if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; }
     return this.http.post(reqUrl, {
       "token": token,
       "gender": gender
     }, { headers: headers }).do((event) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     }, (err) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     });
   }
 
@@ -129,13 +129,13 @@ export class ApiService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    document.getElementById("my_preloader_ele").style.display = "block";
+    if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; } if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; }
     return this.http.post(reqUrl, {
       "token": token
-    }, {headers: headers}).do((event) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+    }, { headers: headers }).do((event) => {
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     }, (err) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     });
   }
 
@@ -144,13 +144,13 @@ export class ApiService {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
-    document.getElementById("my_preloader_ele").style.display = "block";
+    if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; } if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "block"; }
     return this.http.post(reqUrl, {
       "token": token
-    }, {headers: headers}).do((event) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+    }, { headers: headers }).do((event) => {
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     }, (err) => {
-      document.getElementById("my_preloader_ele").style.display = "none";
+      if (document.getElementById("my_preloader_ele")) { document.getElementById("my_preloader_ele").style.display = "none"; }
     });
   }
 }

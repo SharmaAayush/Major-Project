@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CoreComponent } from './core.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('CoreComponent', () => {
   let component: CoreComponent;
@@ -8,9 +9,10 @@ describe('CoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CoreComponent ]
+      declarations: [CoreComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +24,12 @@ describe('CoreComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should contain header for authenticated users', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-header')).toBeTruthy();
+  }));
+  it('should contain a router outlet for all the children components', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
+  }));
 });

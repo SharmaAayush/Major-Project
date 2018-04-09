@@ -22,4 +22,12 @@ describe('NearbyHospialsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should contain a script to load google maps', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('div#script script')).toBeTruthy();
+  });
+  it('should contain a div to display the google map', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('div#map')).toBeTruthy();
+  });
 });
