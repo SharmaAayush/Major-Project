@@ -53,7 +53,6 @@ export class ReportsComponent implements OnInit {
         this.symptomData.datasets[0].backgroundColor.push(color2);
         if (index == array.length - 1) {
           setTimeout(() => {
-            console.log(this.symptomData);
             this.isDataAvailable = true;
           }, 200);
         }
@@ -64,7 +63,6 @@ export class ReportsComponent implements OnInit {
         this.issuesData.datasets[0].backgroundColor.push(color1);
         if (index == array.length - 1) {
           setTimeout(() => {
-            console.log(this.issuesData);
             this.isDataAvailable = true;
           }, 200);
         }
@@ -90,11 +88,9 @@ export class ReportsComponent implements OnInit {
       setTimeout(() => {
         this.reportsList = body;
         this.reportsService.setReportList(body);
-        // console.log(this.reportsList);
       }, 0);
-      // console.log(body);
     }, (err) => {
-      console.log(err);
+      console.warn(err);
     });
   }
 

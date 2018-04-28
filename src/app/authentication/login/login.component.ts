@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("x-auth-user", JSON.stringify(user));
       this.authenticateUser.loginUser(user);
     }, (err: any) => {
-      console.log(err);
+      console.warn(err);
       this.isError = true;
       this.errMsg = "";
       let obj = this;
